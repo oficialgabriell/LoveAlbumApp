@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import './FormPage.css'
 
 function FormPage() {
-  const navigate = useNavigate();
   const [romanticText, setRomanticText] = useState('');
   const [photos, setPhotos] = useState<File[]>([]);
   const [date, setDate] = useState('');
