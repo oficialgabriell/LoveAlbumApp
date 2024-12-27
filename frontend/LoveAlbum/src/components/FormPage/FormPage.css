@@ -1,0 +1,176 @@
+/* Corpo da página (garante que a página ocupe toda a altura da tela) */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ocupa toda a altura da tela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background: linear-gradient(to right, #f9a8d4, #a7c7e7); /* Gradiente suave de rosa e azul */
+    overflow: hidden; /* Remove a barra de rolagem do body */
+    box-sizing: border-box;
+}
+
+/* Formulário (semelhante à ResultPage) */
+.form-page {
+    background: white;
+    color: #4b0082; /* Roxo suave para o texto */
+    font-family: 'Arial', sans-serif;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    max-width: 40rem; /* Largura máxima do formulário */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    max-height:100vh; /* Garante que o formulário não ultrapasse a altura da tela */
+    overflow-y: auto; /* Permite rolagem vertical dentro do formulário */
+    position: relative; /* Para garantir que o conteúdo se ajuste corretamente */
+}
+
+/* Títulos */
+.form-page h1 {
+    color: #e63946; /* Vermelho suave */
+    font-size: 2.5rem; /* 40px */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+/* Labels */
+.form-page label {
+    font-size: 1.2rem; /* 19px */
+    color: #4b0082; /* Roxo suave */
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Textarea */
+.form-page textarea {
+    width: 100%;
+    height: 10rem; /* 160px */
+    padding: 4rem;
+    margin-bottom: 2rem;
+    border: 0.125rem solid #e63946; /* Bordas vermelhas suaves */
+    border-radius: 0.5rem;
+    font-size: 1rem; /* 16px */
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-page textarea:focus {
+    border-color: #a7c7e7; /* Azul suave no foco */
+    outline: none;
+}
+
+/* Inputs */
+.form-page input[type="file"],
+.form-page input[type="datetime-local"],
+.form-page input[type="url"] {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 0.125rem solid #e63946;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem; /* 16px */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-page input[type="file"]:focus,
+.form-page input[type="datetime-local"]:focus,
+.form-page input[type="url"]:focus {
+    border-color: #a7c7e7; /* Azul suave no foco */
+    outline: none;
+}
+
+/* Botão */
+.form-page button {
+    background-color: #e63946; /* Vermelho suave */
+    color: white;
+    font-size: 1.2rem; /* 19px */
+    padding: 1.2rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.form-page button:hover {
+    background-color: #d62828; /* Vermelho mais forte no hover */
+}
+
+/* Adicionando uma animação suave */
+.form-page input[type="file"],
+.form-page input[type="datetime-local"],
+.form-page input[type="url"],
+.form-page textarea,
+.form-page button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-page input[type="file"]:hover,
+.form-page input[type="datetime-local"]:hover,
+.form-page input[type="url"]:hover,
+.form-page textarea:hover,
+.form-page button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-page {
+        padding: 1.5rem;
+        margin: 3rem auto;
+        max-width: 35rem; /* Ajusta a largura para telas menores */
+    }
+
+    .form-page h1 {
+        font-size: 2rem; /* 32px */
+    }
+
+    .form-page label {
+        font-size: 1rem; /* 16px */
+    }
+
+    .form-page textarea,
+    .form-page input[type="file"],
+    .form-page input[type="datetime-local"],
+    .form-page input[type="url"] {
+        font-size: 0.9rem; /* 14px */
+    }
+
+    .form-page button {
+        font-size: 1rem; /* 16px */
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-page {
+        padding: 1rem;
+        margin: 2rem auto;
+        max-width: 30rem; /* Ajusta a largura para telas muito pequenas */
+    }
+
+    .form-page h1 {
+        font-size: 1.8rem; /* 28px */
+    }
+
+    .form-page button {
+        font-size: 0.9rem; /* 14px */
+        padding: 0.8rem 1.2rem;
+    }
+}

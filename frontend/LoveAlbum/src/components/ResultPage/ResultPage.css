@@ -1,0 +1,213 @@
+/* Corpo da página */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Garantir que o corpo ocupe 100% da altura da tela */
+    background: linear-gradient(to right, #f9a8d4, #a7c7e7); /* Gradiente suave de rosa e azul */
+    background-attachment: fixed; /* Faz o fundo ficar fixo */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinhamento inicial para que o conteúdo não fique centralizado verticalmente */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto; /* Permite rolagem vertical */
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Resto do CSS permanece o mesmo... */
+
+
+/* Efeito de corações caindo */
+@keyframes heartFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
+    animation: heartFall 5s linear infinite;
+    opacity: 0.7;
+    animation-delay: calc(5s * var(--i));
+}
+
+/* Limitar o número de corações */
+.heart:nth-child(even) {
+    background-color: #ff66b2; /* Rosa claro */
+}
+
+.heart:nth-child(odd) {
+    background-color: #ff3366; /* Vermelho suave */
+}
+
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Não interfere com a interação do usuário */
+    z-index: 0;
+}
+
+/* Result Page */
+.result-page {
+    background: white;
+    color: #4b0082; /* Roxo suave para o texto */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* Garante que o conteúdo ocupe 100% da largura disponível */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse a tela */
+    margin-top: 2rem; /* Ajuste para espaçar o conteúdo da parte superior */
+    margin-bottom: 2rem; /* Ajuste para espaçar o conteúdo da parte inferior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+.result-page h1 {
+    font-size: 2.5rem;
+    color: #e63946; /* Vermelho suave */
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+/* Subtítulos */
+.result-page h2 {
+    font-size: 1.8rem;
+    color: #4b0082;
+    margin-top: 2rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/* Texto do conteúdo */
+.result-page p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Verdana', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+/* Galeria de fotos */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    overflow: hidden; /* Garante que não haja rolagem na galeria */
+    width: 100%; /* Garante que a galeria ocupe 100% da largura disponível */
+}
+
+/* Estilo das fotos */
+.photo {
+    width: 8rem;
+    height: 8rem;
+    overflow: hidden; /* Garante que as imagens não causem rolagem */
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}
+
+.photo img {
+    width: 100%; /* Garante que a imagem ocupe todo o espaço disponível */
+    height: 100%; /* Garante que a imagem ocupe todo o espaço disponível */
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorcer */
+    display: block; /* Remove espaços extras ao redor da imagem */
+}
+
+/* Iframe do YouTube */
+.result-page iframe {
+    margin-top: 2rem;
+    border-radius: 1rem;
+    border: 0;
+    width: 100%;
+    max-width: 560px; /* Limita o tamanho máximo do iframe */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .result-page {
+        padding: 1.5rem;
+        margin: 3rem auto;
+        max-width: 100%; /* Ajusta para telas menores */
+    }
+
+    .result-page h1 {
+        font-size: 2rem;
+    }
+
+    .result-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .result-page p {
+        font-size: 1rem;
+    }
+
+    .photo {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .result-page iframe {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-page {
+        padding: 1rem;
+        margin: 2rem auto;
+        max-width: 100%;
+    }
+
+    .result-page h1 {
+        font-size: 1.8rem;
+    }
+
+    .result-page h2 {
+        font-size: 1.3rem;
+    }
+
+    .result-page p {
+        font-size: 0.9rem;
+    }
+
+    .photo {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .result-page iframe {
+        width: 100%;
+        max-width: 100%;
+    }
+}
